@@ -1,0 +1,71 @@
+experiment_name: field_columns/column_4
+data_path: data/raw/field/column_4.xlsx
+sheet_name: null
+output_dir: results
+seed: 2026
+device: auto
+col_x: Depth [L]
+col_t: Time [Day]
+col_theta: Moisture [-]
+depth_positive_downward: true
+layers:
+- top: 0.0
+  bottom: -50.0
+  soil: Fine Sand
+- top: -50.0
+  bottom: -150.0
+  soil: Silt
+- top: -150.0
+  bottom: -400.0
+  soil: Fine Sand
+net_layers:
+- 2
+- 128
+- 128
+- 128
+- 128
+- 128
+- 3
+n_collocation: 8000
+interface_k_initial: 5.0
+interface_k_stage1_max: 15.0
+interface_k_stage2_max: 20.0
+interface_buffer_cm: 1.5
+stage1_epochs: 10000
+stage2_epochs: 20000
+lbfgs_max_iter: 10000
+use_lbfgs: true
+refresh_collocation_every: 2000
+print_every: 2000
+stage1_lr: 0.001
+stage2_lr: 0.0005
+pde_weight_start: 0.0001
+pde_weight_end: 0.01
+grad_clip: 1.0
+loss_weights:
+  data: 100.0
+  vg: 10.0
+  pde: 0.01
+  prior: 0.001
+validation:
+  method: none
+  fraction: 0.2
+  depths_cm: []
+metadata:
+  data_type: soil-column water-content observations
+  column_id: column_4
+  interpretation_note: Estimated parameters are effective VG-Mualem parameters constrained
+    by water-content observations, not direct validation against measured h or K.
+  observation_depths_cm_positive_downward:
+  - 10
+  - 20
+  - 30
+  - 40
+  - 60
+  - 80
+  - 100
+  - 120
+  - 140
+  - 160
+  - 260
+  - 380

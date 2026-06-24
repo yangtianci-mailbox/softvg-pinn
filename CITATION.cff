@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+title: "SoftVG-PINN reproducibility package"
+message: "If you use this code, please cite the accompanying paper and archived repository DOI."
+type: software
+authors:
+  - family-names: "Yang"
+    given-names: "Tianci"
+version: "0.2.0"
+date-released: "2026-06-24"
+repository-code:"https://github.com/yangtianci-mailbox/softvg-pinn.git "
+license: "MIT"
+

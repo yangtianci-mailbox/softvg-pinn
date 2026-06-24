@@ -1,0 +1,165 @@
+experiment_name: scenarios/T3
+data_path: data/raw/hydrus/T3.xlsx
+sheet_name: null
+output_dir: results
+seed: 2026
+device: auto
+col_x: Depth [L]
+col_t: Time [Day]
+col_theta: Moisture [-]
+depth_positive_downward: true
+layers:
+- top: 0.0
+  bottom: -50.0
+  soil: Clay Loam
+- top: -50.0
+  bottom: -150.0
+  soil: Sand
+- top: -150.0
+  bottom: -400.0
+  soil: Sandy Loam
+net_layers:
+- 2
+- 128
+- 128
+- 128
+- 128
+- 128
+- 3
+n_collocation: 8000
+interface_k_initial: 5.0
+interface_k_stage1_max: 15.0
+interface_k_stage2_max: 20.0
+interface_buffer_cm: 1.5
+stage1_epochs: 10000
+stage2_epochs: 20000
+lbfgs_max_iter: 10000
+use_lbfgs: true
+refresh_collocation_every: 2000
+print_every: 2000
+stage1_lr: 0.001
+stage2_lr: 0.0005
+pde_weight_start: 0.0001
+pde_weight_end: 0.01
+grad_clip: 1.0
+loss_weights:
+  data: 100.0
+  vg: 10.0
+  pde: 0.01
+  prior: 0.001
+validation:
+  method: none
+  fraction: 0.2
+  depths_cm: []
+metadata:
+  software: HYDRUS-1D
+  process: Water Flow
+  governing_equation: Richards equation
+  hydraulic_model: van Genuchten-Mualem
+  hysteresis: not considered
+  root_water_uptake: not considered
+  solute_transport: not considered
+  units: cm, day
+  profile_depth_cm: 400
+  surface_cm: 0
+  bottom_cm: 400
+  mesh: 1 cm per node
+  interfaces_cm_positive_downward:
+  - 50
+  - 150
+  upper_boundary: Atmospheric BC with Surface Layer
+  lower_boundary: Free Drainage
+  initial_condition_type: In Pressure Heads
+  observation_depths_cm_positive_downward:
+  - 10
+  - 20
+  - 30
+  - 40
+  - 60
+  - 80
+  - 100
+  - 120
+  - 140
+  - 160
+  - 260
+  - 380
+  evaporation: 0
+  transpiration: 0
+  scenario_id: T3
+  scenario_group: T soil-type combination
+  scenario_description: Three-layer soil-type combination
+  simulation_duration_days: 100
+  initial_pressure_head_cm: uniform -300
+  precipitation_schedule:
+  - start_day: 1
+    end_day: 2
+    precipitation_cm_day^-1: 1.0
+  - start_day: 21
+    end_day: 22
+    precipitation_cm_day^-1: 1.0
+  - start_day: 41
+    end_day: 42
+    precipitation_cm_day^-1: 1.0
+  - start_day: 61
+    end_day: 62
+    precipitation_cm_day^-1: 1.0
+  - start_day: 81
+    end_day: 82
+    precipitation_cm_day^-1: 1.0
+  soil_reference_parameters:
+    Silt:
+      theta_r: 0.034
+      theta_s: 0.46
+      alpha_cm^-1: 0.016
+      n: 1.37
+      Ks_cm_day^-1: 6.0
+      l: 0.5
+    Sand:
+      theta_r: 0.08
+      theta_s: 0.43
+      alpha_cm^-1: 0.145
+      n: 2.68
+      Ks_cm_day^-1: 712.8
+      l: 0.5
+    Sandy Loam:
+      theta_r: 0.065
+      theta_s: 0.41
+      alpha_cm^-1: 0.075
+      n: 1.89
+      Ks_cm_day^-1: 106.1
+      l: 0.5
+    Loam:
+      theta_r: 0.078
+      theta_s: 0.43
+      alpha_cm^-1: 0.036
+      n: 1.56
+      Ks_cm_day^-1: 24.96
+      l: 0.5
+    Loamy Sand:
+      theta_r: 0.057
+      theta_s: 0.41
+      alpha_cm^-1: 0.124
+      n: 2.28
+      Ks_cm_day^-1: 350.2
+      l: 0.5
+    Clay Loam:
+      theta_r: 0.095
+      theta_s: 0.41
+      alpha_cm^-1: 0.019
+      n: 1.31
+      Ks_cm_day^-1: 6.24
+      l: 0.5
+    Silt Loam:
+      theta_r: 0.06
+      theta_s: 0.45
+      alpha_cm^-1: 0.02
+      n: 1.41
+      Ks_cm_day^-1: 10.8
+      l: 0.5
+    Sandy Clay Loam:
+      theta_r: 0.1
+      theta_s: 0.39
+      alpha_cm^-1: 0.059
+      n: 1.48
+      Ks_cm_day^-1: 31.44
+      l: 0.5

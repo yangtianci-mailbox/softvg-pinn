@@ -1,0 +1,14 @@
+name: softvg-pinn
+channels:
+  - pytorch
+  - conda-forge
+dependencies:
+  - python=3.11
+  - numpy
+  - pandas
+  - matplotlib
+  - pyyaml
+  - pytorch
+  - openpyxl
+  - pytest
+  - pip

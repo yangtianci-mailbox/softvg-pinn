@@ -1,0 +1,49 @@
+experiment_name: debug_smoke_test
+data_path: data/example/example_small.csv
+sheet_name: null
+output_dir: results
+seed: 2026
+device: auto
+col_x: Depth [L]
+col_t: Time [Day]
+col_theta: Moisture [-]
+depth_positive_downward: false
+layers:
+- top: 0.0
+  bottom: -50.0
+  soil: Silt
+- top: -50.0
+  bottom: -150.0
+  soil: Sand
+net_layers:
+- 2
+- 16
+- 16
+- 3
+n_collocation: 64
+interface_k_initial: 5.0
+interface_k_stage1_max: 15.0
+interface_k_stage2_max: 20.0
+interface_buffer_cm: 1.5
+stage1_epochs: 2
+stage2_epochs: 2
+lbfgs_max_iter: 0
+use_lbfgs: false
+refresh_collocation_every: 1
+print_every: 1
+stage1_lr: 0.001
+stage2_lr: 0.0005
+pde_weight_start: 0.0001
+pde_weight_end: 0.01
+grad_clip: 1.0
+loss_weights:
+  data: 100.0
+  vg: 10.0
+  pde: 0.01
+  prior: 0.001
+validation:
+  method: none
+  fraction: 0.2
+  depths_cm: []
+metadata:
+  purpose: quick smoke test; not a scientific experiment
